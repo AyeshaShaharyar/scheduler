@@ -1,7 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
-import { useState } from "react";
+
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
@@ -36,7 +37,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>
+          <Button confirm onClick={() => props.onSave(student, interviewer)}>
             Save
           </Button>
         </section>
