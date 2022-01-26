@@ -11,6 +11,28 @@ export  function useApplicationData() {
     
   });
 
+  //function that updates spots remaining after save action
+  const updateSpotsOnSave = (appointment, id) => {
+    if (
+      state.appointments[id].interview === null &&
+      appointment.interview !== null
+    ) {
+      const currentDay = state.days.find(day => day.name === state.day);
+      currentDay.spots--;
+    }
+  };
+
+  //function that updates spots remaining after delete action
+  const updateSpotsOnDelete = (appointment, id) => {
+    if (
+      state.appointments[id].interview !== null &&
+      appointment.interview === null
+    ) {
+      const currentDay = state.days.find(day => day.name === state.day);
+      currentDay.spots++;
+    }
+  };
+
 
   function  bookInterview (id, interview) {
     const appointment = {
@@ -21,7 +43,9 @@ export  function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.put(`/api/appointments/${id}`, {id, interview})
+    updateSpotsOnSave(appointment, id);
+
+    return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
       setState({
         ...state,
@@ -40,7 +64,9 @@ export  function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.delete(`/api/appointments/${id}`)
+    updateSpotsOnDelete(appointment, id)
+
+    return axios.delete(`/api/appointments/${id}`, appointment)
     .then(() => {
       setState({
         ...state,
