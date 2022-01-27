@@ -10,6 +10,11 @@ Install dependencies with `npm install`.
 ```sh
 npm start
 ```
+## Screenshots
+!["Screenshot of main scheduler view"](https://github.com/AyeshaShaharyar/scheduler/blob/master/docs/scheduled%20appointments.png?raw=true)
+!["Screenshot of appointment form"](https://github.com/AyeshaShaharyar/scheduler/blob/master/docs/appointment-form.png?raw=true)
+!["Screenshot of appointment editor"](https://github.com/AyeshaShaharyar/scheduler/blob/master/docs/new-appointment-created.png?raw=true)
+!["Screenshot of appointment deleting screen"](https://github.com/AyeshaShaharyar/scheduler/blob/master/docs/appointmet-cancelation.png?raw=true)
 
 ## Running Jest Test Framework
 
