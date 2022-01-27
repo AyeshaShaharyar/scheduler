@@ -5,7 +5,6 @@ export  function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    // you may put the line below, but will have to remove/comment hardcoded appointments variable
     appointments: {},
     interviewers: {}
     
@@ -33,7 +32,7 @@ export  function useApplicationData() {
     }
   };
 
-
+//function that books an interview
   function  bookInterview (id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -54,6 +53,8 @@ export  function useApplicationData() {
     });
    
   }
+
+  //function that deletes an interview
 
   function cancelInterview(id){
     const appointment = {
@@ -81,7 +82,7 @@ export  function useApplicationData() {
   const setDay = day => setState({ ...state, day });
 
   
-
+//data from API server
   
   useEffect(() => {
     Promise.all([

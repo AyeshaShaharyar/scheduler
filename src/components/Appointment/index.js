@@ -52,9 +52,6 @@ export default function Appointment(props) {
     back();
   }
 
-  // function onEdit() {
-    
-  // }
 
   return (
     <article className="appointment">
